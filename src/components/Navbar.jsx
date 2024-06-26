@@ -53,6 +53,7 @@ const Navbar = () => {
           ))}
         </ul>
         {/* signup and login btn */}
+        {/* for large screen */}
         <div className="text-base text-primary font-medium space-x-5 hidden lg:flex">
           <NavLink
             to="/login"
