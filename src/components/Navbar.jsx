@@ -63,7 +63,7 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             to="/sign-up"
-            className="py-2 px-5 border border-blue-600 rounded bg-blue text-white  hover:text-blue transition-colors duration-300"
+            className="py-2 px-5 border border-blue-600 rounded bg-blue text-white  hover:text-black transition-colors duration-300"
           >
             Sign Up
           </NavLink>
