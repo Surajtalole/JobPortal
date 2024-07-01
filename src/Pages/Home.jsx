@@ -7,12 +7,17 @@ import Sidebar from "../sidebar/Sidebar";
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [jobs, setJobs] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage]= useState(1);
+  const itemPerPage =6;
 
   useEffect(() => {
+    setIsLoading(true);
     fetch("jobs.json")
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);
+        setIsLoading(false)
       })
       .catch((err) => console.error(err));
   }, []);
@@ -83,7 +88,14 @@ const Home = () => {
 
         {/* job card */}
         <div className="col-span-2 bg-white p-4 rounded-sm">
-          <Jobs result={result} />
+          {
+            isLoading ? (<p className="font-medium">Loading....</p>) : result.length > 0 ? ( <Jobs result={result} />) : <>
+            <h3 className="text-lg font-bold mb-2">{result.length} Jobs</h3>
+            <p>No data found</p>
+            </>
+           
+          }
+          
         </div>
 
         {/* right side */}
